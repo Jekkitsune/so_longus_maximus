@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 22:30:31 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/21 20:04:52 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/24 20:43:25 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	change_anim(t_data *data, char *name, int reset)
 
 	if (data->player.current_anim && (data->flags.bad_apple_launched
 		|| data->flags.old_tex || data->flags.debug_mode
-		|| (data->flags.fnaf && !data->player.dead)))
+		|| (data->flags.fnaf && !data->player.dead) || data->flags.car))
 		return ;
 	index = get_anim_index(data, name);
 	data->player.current_anim = &data->player.anim[index];

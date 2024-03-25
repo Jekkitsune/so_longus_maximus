@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 22:23:29 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/20 17:43:51 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/24 18:16:48 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	create_option_menu(t_data *data)
 void	create_extras_menu(t_data *data)
 {
 	data->menu_list[2].name = "extras";
-	data->menu_list[2].size = 5;
+	data->menu_list[2].size = 6;
 	data->menu_list[2].button_index = 0;
 	data->menu_list[2].tab = malloc(data->menu_list[2].size * sizeof(t_button));
 	if (!data->menu_list[2].tab)
@@ -97,7 +97,8 @@ void	create_extras_menu(t_data *data)
 	create_button(&data->menu_list[2].tab[2], "Fnaf", ">Fnaf", switch_fnaf);
 	create_button(&data->menu_list[2].tab[3], "Map editor", ">Map editor",
 		switch_debug);
-	create_button(&data->menu_list[2].tab[4], "Back", ">Back", go_to_main_menu);
+	create_button(&data->menu_list[2].tab[4], "Car", ">Car", switch_car);
+	create_button(&data->menu_list[2].tab[5], "Back", ">Back", go_to_main_menu);
 }
 
 void	init_menus(t_data *data)

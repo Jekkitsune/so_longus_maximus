@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 20:21:33 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/19 18:07:47 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/21 21:18:18 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	save(t_data *data)
 {
 	int	fd;
 
-	fd = open("save", O_RDWR | O_CREAT, 0644);
+	fd = open("save", O_RDWR | O_CREAT | O_TRUNC, 0644);
 	if (fd == -1)
 		return ;
 	if (data->ui.luminosity)

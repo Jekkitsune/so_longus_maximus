@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 16:16:21 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/20 17:38:13 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/24 18:16:51 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,5 @@ void	extras_menu_loop(t_data *data)
 	check_debug(data);
 	check_old_tex(data);
 	check_fnaf(data);
+	check_car(data);
 }

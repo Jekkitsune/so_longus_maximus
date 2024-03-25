@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 18:17:54 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/20 17:37:12 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/24 18:17:53 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,32 @@ void	switch_fnaf(t_data *data, int param)
 	{
 		remove_all_flags(data);
 		data->flags.fnaf = 1;
+	}
+}
+
+void	check_car(t_data *data)
+{
+	if (data->flags.car)
+	{
+		data->menu_list[2].tab[4].name = "Car [y]";
+		data->menu_list[2].tab[4].selected_name = ">Car [y]";
+	}
+	else
+	{
+		data->menu_list[2].tab[4].name = "Car [n]";
+		data->menu_list[2].tab[4].selected_name = ">Car [n]";
+	}
+}
+
+void	switch_car(t_data *data, int param)
+{
+	if (param == -1)
+		return ;
+	if (data->flags.car)
+		data->flags.car = 0;
+	else
+	{
+		remove_all_flags(data);
+		data->flags.car = 1;
 	}
 }

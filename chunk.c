@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 15:08:02 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/19 18:02:29 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/25 00:48:58 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,9 @@ void	show_chunk(t_data *data)
 		show_line(data, -data->chunk_size / 2, 1, show_interactible);
 		show_player(data);
 		show_line(data, 1, data->chunk_size / 2 + 1, show_interactible);
+		if (data->flags.car)
+			show_line(data, -data->chunk_size / 2,
+				data->chunk_size / 2 + 1, show_explosion);
 	}
 }
 

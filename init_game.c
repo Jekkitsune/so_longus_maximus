@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 00:55:53 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/21 19:20:03 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/25 01:04:34 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ void	init_game(t_data *data)
 		data->flags.editor_p_y = data->player.y;
 	}
 	if (data->flags.fnaf)
-		play_music(data, "sounds/fnaf/The-man-behind-the-slaughter.wav", 201 * 60);
+		play_music(data, "sounds/fnaf/The-man-behind-the-slaughter.wav",
+			201 * 60);
+	if (data->flags.car)
+		play_music(data, "sounds/car/Evangelion.wav", 230 * 60);
 }
 
 void	init_player_pos(t_data *data, int x, int y)

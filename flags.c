@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:40:00 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/20 17:27:18 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/24 23:06:46 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	check_flags(t_data *data, char **argv)
 	data->map_name = NULL;
 	remove_all_flags(data);
 	init_editor_tab(data);
+	data->flags.explosion_list = NULL;
 	while (argv[i])
 	{
 		if (is_map(argv[i]) && !data->map_name)

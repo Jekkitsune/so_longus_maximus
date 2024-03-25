@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 21:30:03 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/21 19:59:45 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/24 21:08:00 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,10 @@ void	player_loop(t_data *data)
 		else
 			change_anim(data, "idle_l1", 1);
 	}
-	if (data->player.can_move)
+	if (data->player.can_move && !data->flags.car)
 		move(data);
+	else if (data->player.can_move && data->flags.car)
+		car_move(data);
 }
 
 int	get_diff_player(t_data *data, int want_x)
@@ -101,11 +103,11 @@ void	show_player(t_data *data)
 	if (data->player.dead)
 		return (show_death(data));
 	p_x = data->win_x / 2 - data->player.size_x / 2 + get_diff_player(data, 1);
-	p_y = data->win_y / 2 - (data->player.size_y - 20)
+	p_y = data->win_y / 2 - (data->player.size_y - 20) + (30 * data->flags.car)
 		+ get_diff_player(data, 0);
 	if (!data->player.hidden)
 	{
-		if (!data->flags.debug_mode)
+		if (!data->flags.debug_mode && !data->flags.car)
 		{
 			mlx_put_image_to_window(data->mlx, data->win,
 				data->ui.shadow.texture, data->win_x / 2

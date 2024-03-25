@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:49:14 by fparis            #+#    #+#             */
-/*   Updated: 2024/02/27 17:16:56 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/24 23:48:32 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	check_corner(t_data *data, int direc, int direc_y)
 	int	x;
 	int	y;
 
+	if (data->flags.car)
+		return (1);
 	x = data->player.x;
 	y = data->player.y;
 	if (direc != 0)
@@ -104,10 +106,19 @@ void	check_wall_up(t_data *data, int *y)
 
 void	check_wall(t_data *data, int *x, int *y)
 {
+	int	last_x;
+	int	last_y;
+
 	if (data->player.x >= data->size_x || data->player.x < 0
 		|| data->player.y >= data->size_y || data->player.y < 0)
 		return ;
+	last_x = *x;
+	last_y = *y;
+	if (data->flags.car)
+		check_wall_car(data, *x, *y);
 	check_wall_side(data, x);
 	check_wall_up(data, y);
 	hideout_collision(data, x, y);
+	if (data->flags.car && (last_x != *x || last_y != *y))
+		stop_car(data);
 }

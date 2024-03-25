@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:28:10 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/19 18:12:45 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/24 23:15:23 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,21 @@ void	free_textures(t_data *data)
 			i++;
 		}
 		free(data->objects);
+	}
+}
+
+void	destroy_car(t_data *data)
+{
+	int	i;
+
+	if (data->flags.car && data->flags.explosion_anim.tab)
+	{
+		i = 0;
+		while (i < data->flags.explosion_anim.size)
+		{
+			if (data->flags.explosion_anim.tab[i])
+				mlx_destroy_image(data->mlx, data->flags.explosion_anim.tab[i]);
+			i++;
+		}
 	}
 }

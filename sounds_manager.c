@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 16:56:17 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/21 19:22:59 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/25 01:06:22 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	stop_music(t_data *data)
 {
-	data->current_music = NULL;
 	data->music_duration = 0;
-	if (data->music_pid)
+	if (data->current_music && data->music_pid)
 		kill(data->music_pid, SIGKILL);
+	data->current_music = NULL;
 	data->music_pid = 0;
 }
 

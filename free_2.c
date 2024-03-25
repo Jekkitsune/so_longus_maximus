@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 21:24:23 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/08 17:45:56 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/24 23:14:23 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	destroy_anim(t_data *data)
 	}
 	if (data->player.default_sprite)
 		mlx_destroy_image(data->mlx, data->player.default_sprite);
+	destroy_car(data);
 }
 
 void	destroy_monster(t_data *data)

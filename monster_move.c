@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 18:24:24 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/08 21:18:09 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/24 21:10:33 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ void	monster_move(t_data *data)
 	new_coord[0] = data->monster.new_pos[0] - data->monster.last_pos[0];
 	new_coord[1] = data->monster.new_pos[1] - data->monster.last_pos[1];
 	see_player = can_see_player(data);
-	if (see_player && !data->flags.debug_mode && data->monster.x
+	if (see_player && !data->flags.debug_mode && !data->flags.car
+		&& data->monster.x
 		== data->player.x && data->monster.y == data->player.y)
 		kill_player(data);
 	if (monster_should_move(data))

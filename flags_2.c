@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 16:05:43 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/20 17:24:01 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/24 18:16:50 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,5 @@ void	remove_all_flags(t_data *data)
 	data->flags.old_tex = 0;
 	data->flags.debug_mode = 0;
 	data->flags.fnaf = 0;
+	data->flags.car = 0;
 }

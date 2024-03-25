@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 18:34:02 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/21 20:00:08 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/25 00:08:46 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	game_loop(void *param)
 			continue_monster_anim(data, &data->monster);
 			monster_move(data);
 		}
+		if (data->flags.car)
+			continue_all_effects(data);
 		show_chunk(data);
 		check_ui(data);
 	}

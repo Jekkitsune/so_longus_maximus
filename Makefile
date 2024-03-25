@@ -6,12 +6,12 @@
 #    By: fparis <fparis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 15:23:49 by fparis            #+#    #+#              #
-#    Updated: 2024/03/21 16:56:12 by fparis           ###   ########.fr        #
+#    Updated: 2024/03/25 00:05:30 by fparis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -g -Wall -Wextra #-Werror
+CFLAGS = -g -Wall -Wextra -Werror
 NAME = so_long
 HEADER = headers
 
@@ -61,7 +61,11 @@ SRCS = test.c\
 		flags_5.c\
 		flags_6.c\
 		flags_7.c\
-		sounds_manager.c
+		sounds_manager.c\
+		car.c\
+		car_2.c\
+		car_3.c\
+		car_4.c
 
 LIBFT = libft/libft.a libft/ft_printf/libftprintf.a
 	

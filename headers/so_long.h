@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:50:52 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/21 19:23:04 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/25 00:09:29 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,20 +154,36 @@ typedef struct s_UI
 	void		*heart;
 }	t_UI;
 
+typedef	struct s_effect
+{
+	int			x;
+	int			y;
+	t_animation	*anim;
+	int			anim_index;
+	int			clock;
+	void		*sprite;
+}	t_effect;
+
 typedef struct s_flags
 {
-	int		touhou;
-	int		bad_apple_launched;
-	int		old_tex;
-	int		debug_mode;
-	char	editor_tab[7];
-	int		editor_index;
-	int		editor_p_x;
-	int		editor_p_y;
-	int		editor_custom_exist;
-	char	*editor_warning;
-	int		editor_saved;
-	int		fnaf;
+	int			touhou;
+	int			bad_apple_launched;
+	int			old_tex;
+	int			debug_mode;
+	char		editor_tab[7];
+	int			editor_index;
+	int			editor_p_x;
+	int			editor_p_y;
+	int			editor_custom_exist;
+	char		*editor_warning;
+	int			editor_saved;
+	int			fnaf;
+	int			car;
+	int			car_tab[2];
+	int			car_delay[2];
+	t_animation	explosion_anim;
+	t_effect	*explosion_list;
+	int			nb_explosion;
 }	t_flags;
 
 typedef struct s_data
@@ -376,5 +392,17 @@ void		continue_music(t_data *data);
 void		stop_music(t_data *data);
 void		play_music(t_data *data, char *music, int duration);
 void		play_sound(char *sound);
+void		check_car(t_data *data);
+void		switch_car(t_data *data, int param);
+void		load_car(t_data *data);
+void		car_move(t_data *data);
+void		stop_car(t_data *data);
+int			get_car_speed(t_data *data);
+void		create_new_explosion(t_data *data, int x, int y);
+void		destroy_explosion(t_data *data);
+void		destroy_car(t_data *data);
+void		check_wall_car(t_data *data, int x, int y);
+void		continue_all_effects(t_data *data);
+void		show_explosion(t_data *data, int i, int i2);
 
 #endif

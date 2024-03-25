@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 22:43:17 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/21 19:41:02 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/24 18:41:56 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	start_game(t_data *data, int param)
 		init_player_anim(data);
 	}
 	load_old_tex(data);
+	load_car(data);
 	map = data->map_name;
 	init_map(data, map);
 	init_items_tab(data);

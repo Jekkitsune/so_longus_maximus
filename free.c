@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 20:18:40 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/21 18:14:44 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/24 23:18:48 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,10 @@ void	free_all_data(t_data *data)
 		free(data->hideouts);
 	if (data->ui.heart_anim.tab)
 		free(data->ui.heart_anim.tab);
+	if (data->flags.car && data->flags.explosion_list)
+		free(data->flags.explosion_list);
+	if (data->flags.car && data->flags.explosion_anim.tab)
+		free(data->flags.explosion_anim.tab);
 	free_map_chunk(data);
 	free_animations(data);
 	free_textures(data);
