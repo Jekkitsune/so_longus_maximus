@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 22:43:17 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/24 18:41:56 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/27 19:45:26 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	start_game(t_data *data, int param)
 
 	if (param < 0)
 		return ;
+	play_sound("sounds/menu_press.wav");
 	if (data->flags.touhou || data->flags.fnaf)
 	{
 		destroy_anim(data);
@@ -48,6 +49,7 @@ void	go_to_option(t_data *data, int param)
 {
 	if (param < 0)
 		return ;
+	play_sound("sounds/menu_press.wav");
 	data->current_menu = &data->menu_list[1];
 	data->current_menu->button_index = 0;
 }
@@ -56,6 +58,7 @@ void	go_to_main_menu(t_data *data, int param)
 {
 	if (param < 0)
 		return ;
+	play_sound("sounds/menu_press.wav");
 	if (data->current_menu == &data->menu_list[1])
 		save(data);
 	data->current_menu = &data->menu_list[0];
@@ -66,5 +69,6 @@ void	quit_game(t_data *data, int param)
 {
 	if (param < 0)
 		return ;
+	play_sound("sounds/menu_press.wav");
 	mlx_loop_end(data->mlx);
 }

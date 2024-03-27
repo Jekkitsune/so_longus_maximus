@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 18:23:09 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/25 01:26:40 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/27 22:56:09 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	load_car(t_data *data)
 {
 	int	i;
-	
+
 	if (!data->flags.car)
 		return ;
 	i = get_anim_index(data, "default_r");
@@ -68,11 +68,11 @@ void	car_change_state(t_data *data)
 			hide(data);
 	}
 	if (data->player.direction == 1)
-		data->player.current_anim =
-			&data->player.anim[get_anim_index(data, "default_r")];
+		data->player.current_anim
+			= &data->player.anim[get_anim_index(data, "default_r")];
 	else if (data->player.direction == 0)
-		data->player.current_anim =
-			&data->player.anim[get_anim_index(data, "default_l")];
+		data->player.current_anim
+			= &data->player.anim[get_anim_index(data, "default_l")];
 }
 
 void	car_move(t_data *data)

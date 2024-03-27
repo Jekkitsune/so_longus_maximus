@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/24 23:20:39 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/25 01:27:29 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/27 22:56:36 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,22 +57,22 @@ void	show_explosion(t_data *data, int i, int i2)
 
 void	check_wall_car(t_data *data, int x, int y)
 {
-	if (get_car_speed(data) >= 15)
+	if (get_car_speed(data) >= 20)
 	{
 		if (y > 0 && is_type(data, data->player.x, data->player.y + 1, WALL)
-				&& y + data->player.hitbox_y >= ((data->tex_size / 2)
+			&& y + data->player.hitbox_y >= ((data->tex_size / 2)
 				- data->center_y))
 			explode_wall(data, data->player.x, data->player.y + 1);
 		if (y < 0 && is_type(data, data->player.x, data->player.y - 1, WALL)
-				&& y - data->player.hitbox_y <= (-(data->tex_size / 2)
+			&& y - data->player.hitbox_y <= (-(data->tex_size / 2)
 				- data->center_y))
 			explode_wall(data, data->player.x, data->player.y - 1);
 		if (x > 0 && is_type(data, data->player.x + 1, data->player.y, WALL)
-				&& x + data->player.hitbox_x >= ((data->tex_size / 2)
+			&& x + data->player.hitbox_x >= ((data->tex_size / 2)
 				- data->center_x))
 			explode_wall(data, data->player.x + 1, data->player.y);
 		if (x < 0 && is_type(data, data->player.x - 1, data->player.y, WALL)
-				&& x - data->player.hitbox_x <= (-(data->tex_size / 2)
+			&& x - data->player.hitbox_x <= (-(data->tex_size / 2)
 				- data->center_x))
 			explode_wall(data, data->player.x - 1, data->player.y);
 	}

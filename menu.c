@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 22:23:29 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/24 18:16:48 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/27 22:41:22 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ void	create_main_menu(t_data *data)
 		free_exit(data, "could not allocate main menu");
 	data->menu_list[0].menu_loop = empty_loop;
 	data->menu_list[0].margin = 200;
-	create_button(&data->menu_list[0].tab[0], "Start", ">Start", start_game);
+	create_button(&data->menu_list[0].tab[0], "Select level", ">Select level",
+		go_to_level_selection);
 	create_button(&data->menu_list[0].tab[1], "Extras", ">Extras",
 		go_to_extras);
 	create_button(&data->menu_list[0].tab[2], "Options", ">Options",
@@ -103,11 +104,12 @@ void	create_extras_menu(t_data *data)
 
 void	init_menus(t_data *data)
 {
-	data->nb_menu = 3;
+	data->nb_menu = 4;
 	data->menu_list = malloc(data->nb_menu * sizeof(t_menu));
 	if (!data->menu_list)
 		free_exit(data, "could not allocate menus");
 	create_main_menu(data);
 	create_option_menu(data);
 	create_extras_menu(data);
+	create_level_selection(data);
 }

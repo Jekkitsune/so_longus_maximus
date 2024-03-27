@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 15:56:53 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/24 18:44:27 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/27 19:44:43 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,15 @@ void	menu_command(t_data *data, int key)
 
 	menu = data->current_menu;
 	if ((key == 26 || key == 82) && menu->button_index > 0)
+	{
 		menu->button_index--;
+		play_sound("sounds/menu_move.wav");
+	}
 	if ((key == 22 || key == 81) && menu->button_index < menu->size - 1)
+	{
 		menu->button_index++;
+		play_sound("sounds/menu_move.wav");
+	}
 	if (key == 40 || key == 79 || key == 7)
 		menu->tab[menu->button_index].press(data, 1);
 	if (key == 4 || key == 80)

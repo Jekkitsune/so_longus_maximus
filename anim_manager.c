@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 22:30:31 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/24 20:43:25 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/27 22:57:07 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void	continue_monster_anim(t_data *data, t_monster *monster)
 
 	if (!data->monster.exist || data->flags.fnaf)
 		return ;
+	if (data->monster.scream_timer > 0)
+		data->monster.scream_timer--;
 	current = &monster->anim[0];
 	current->clock--;
 	if (current->clock < 0)
@@ -78,8 +80,8 @@ void	change_anim(t_data *data, char *name, int reset)
 	int	index;
 
 	if (data->player.current_anim && (data->flags.bad_apple_launched
-		|| data->flags.old_tex || data->flags.debug_mode
-		|| (data->flags.fnaf && !data->player.dead) || data->flags.car))
+			|| data->flags.old_tex || data->flags.debug_mode
+			|| (data->flags.fnaf && !data->player.dead) || data->flags.car))
 		return ;
 	index = get_anim_index(data, name);
 	data->player.current_anim = &data->player.anim[index];

@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:17:48 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/19 18:13:52 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/27 19:45:37 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	change_luminosity(t_data *data, int param)
 {
 	int	ind_lumin;
 
+	play_sound("sounds/menu_move.wav");
 	if (!data->ui.luminosity)
 	{
 		if (param == 1)
@@ -38,6 +39,7 @@ void	change_light(t_data *data, int param)
 {
 	int	ind_light;
 
+	play_sound("sounds/menu_move.wav");
 	if (!data->ui.light)
 	{
 		if (param == 1)

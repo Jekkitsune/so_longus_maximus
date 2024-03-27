@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:50:52 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/25 00:09:29 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/27 22:57:55 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct s_animation
 	char	*name;
 	int		interval;
 	int		clock;
+	void	(*anim_sound)(int index, int clock);
 }	t_animation;
 
 typedef struct s_player
@@ -114,6 +115,7 @@ typedef struct s_monster
 	int			last_pos[2];
 	int			last_seen_x;
 	int			last_seen_y;
+	int			scream_timer;
 }	t_monster;
 
 typedef struct s_item
@@ -154,7 +156,7 @@ typedef struct s_UI
 	void		*heart;
 }	t_UI;
 
-typedef	struct s_effect
+typedef struct s_effect
 {
 	int			x;
 	int			y;
@@ -224,6 +226,8 @@ typedef struct s_data
 	int				music_duration;
 	int				music_full_duration;
 	char			*current_music;
+	char			**all_maps;
+	int				nb_maps;
 }	t_data;
 
 typedef struct s_button
@@ -265,7 +269,7 @@ t_object	*get_good_tex(t_data *data, int x, int y);
 t_object	*get_wall(t_data *data, int x, int y);
 void		move_anim(t_data *data);
 void		idle_anim(t_data *data);
-void		check_flags(t_data *data, char **argv);
+void		check_flags(t_data *data, char **argv, int argc);
 void		check_wall(t_data *data, int *x, int *y);
 void		show_obj(t_data *data, int i, int i2);
 t_item		*has_item(t_data *data, int x, int y);
@@ -404,5 +408,14 @@ void		destroy_car(t_data *data);
 void		check_wall_car(t_data *data, int x, int y);
 void		continue_all_effects(t_data *data);
 void		show_explosion(t_data *data, int i, int i2);
+void		anim_sound_loop(t_data *data);
+void		init_anim_sound(t_data *data);
+int			get_monster_distance(t_data *data);
+void		breathing(int index, int clock);
+void		death_sound(int index, int clock);
+void		go_to_level_selection(t_data *data, int param);
+void		level_selection_loop(t_data *data);
+void		change_level_selected(t_data *data, int param);
+void		create_level_selection(t_data *data);
 
 #endif

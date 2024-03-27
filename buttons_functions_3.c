@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:09:57 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/08 21:22:38 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/27 19:45:50 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	go_to_extras(t_data *data, int param)
 {
 	if (param < 0)
 		return ;
+	play_sound("sounds/menu_press.wav");
 	data->current_menu = &data->menu_list[2];
 	data->current_menu->button_index = 0;
 }
@@ -38,6 +39,7 @@ void	change_resolution(t_data *data, int param)
 {
 	if (param == -1)
 		return ;
+	play_sound("sounds/menu_press.wav");
 	if (data->fullscreen)
 		data->fullscreen = 0;
 	else
@@ -48,6 +50,7 @@ void	switch_touhou(t_data *data, int param)
 {
 	if (param == -1)
 		return ;
+	play_sound("sounds/menu_press.wav");
 	if (data->flags.touhou)
 		data->flags.touhou = 0;
 	else

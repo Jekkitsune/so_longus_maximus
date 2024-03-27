@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 17:40:00 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/24 23:06:46 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/27 22:46:18 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	is_map(char *str)
 	return (0);
 }
 
-void	check_flags(t_data *data, char **argv)
+void	check_flags(t_data *data, char **argv, int argc)
 {
 	int	i;
 
@@ -36,8 +36,11 @@ void	check_flags(t_data *data, char **argv)
 	data->flags.explosion_list = NULL;
 	while (argv[i])
 	{
-		if (is_map(argv[i]) && !data->map_name)
-			data->map_name = argv[i];
+		if (is_map(argv[i]))
+		{
+			if (!data->map_name)
+				data->map_name = argv[i];
+		}
 		else
 		{
 			ft_printf("Wrong parameters\n");
@@ -47,6 +50,8 @@ void	check_flags(t_data *data, char **argv)
 	}
 	if (!data->map_name)
 		exit(1);
+	data->all_maps = argv;
+	data->nb_maps = argc;
 }
 
 void	continue_long_anim(t_data *data, t_animation *current, char *name)
@@ -106,12 +111,14 @@ void	bad_apple_manager(t_data *data)
 	{
 		data->player.hitbox_x /= 2;
 		data->flags.bad_apple_launched = 0;
+		stop_music(data);
 		idle_anim(data);
 	}
 	else if (!data->player.dead)
 	{
 		data->player.hitbox_x *= 2;
 		change_anim(data, "bad_apple", 0);
+		play_music(data, "sounds/bad_apple.wav", 220 * 60);
 		data->flags.bad_apple_launched = 1;
 	}
 }

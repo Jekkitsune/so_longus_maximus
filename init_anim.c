@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 16:56:36 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/20 20:33:56 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/27 17:26:17 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,13 @@ void	init_anim(t_data *data, t_animation *anim, int size, char *path)
 	if (!str)
 		free_exit(data, "could not load anim");
 	anim->size = size;
+	anim->anim_sound = NULL;
 	ft_strlcpy(str, path, ft_strlen(path) + 1);
 	i = 0;
 	while (i++ < size)
 	{
 		if (i >= 100 && i % 100 == 0)
 			str[nb_sprite - 1] = '0' + i % 1000 / 100;
-		if (i >= 1000 && i % 1000 == 0)
-			str[nb_sprite - 2] = '0' + i % 10000 / 1000;
 		str[nb_sprite] = '0' + (i % 100 / 10);
 		str[nb_sprite + 1] = '0' + i % 10;
 		anim->tab[i - 1] = mlx_png_file_to_image(data->mlx, str, NULL, NULL);

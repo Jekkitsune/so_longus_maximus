@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 18:51:50 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/19 18:12:09 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/27 19:50:37 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,14 @@ void	show_light_anim(t_data *data)
 			data->ui.in_anim--;
 			data->ui.is_dark = rand() % 20 + 3;
 			data->ui.light_timer = rand() % 5 + 5;
+			play_sound("sounds/light.wav");
 		}
 		else
 		{
 			data->ui.in_anim = rand() % 3 + 1;
 			data->ui.is_dark = 20;
 			data->ui.light_timer = rand() % 3000 + 1000;
+			play_sound("sounds/light.wav");
 		}
 	}
 }

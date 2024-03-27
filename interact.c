@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 20:49:49 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/08 21:24:54 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/27 19:39:39 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	interact(t_data *data)
 			item->collected = 1;
 			data->item_collected++;
 			put_text(data, get_tex(data, "number_01"), 30, 120);
+			play_sound("sounds/item_collected.wav");
 			return ;
 		}
 		hideout = has_hideout(data, data->player.x, data->player.y);

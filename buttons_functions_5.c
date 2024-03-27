@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 18:17:54 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/24 18:17:53 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/27 19:46:07 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	switch_fnaf(t_data *data, int param)
 {
 	if (param == -1)
 		return ;
+	play_sound("sounds/menu_press.wav");
 	if (data->flags.fnaf)
 		data->flags.fnaf = 0;
 	else
@@ -71,6 +72,7 @@ void	switch_car(t_data *data, int param)
 {
 	if (param == -1)
 		return ;
+	play_sound("sounds/menu_press.wav");
 	if (data->flags.car)
 		data->flags.car = 0;
 	else

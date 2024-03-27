@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 20:20:08 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/19 18:05:57 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/27 20:03:57 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,38 +75,4 @@ void	get_to_player(t_data *data, int new_coord[2])
 		}
 		coords[0]++;
 	}
-}
-
-int	can_see_player(t_data *data)
-{
-	int	x;
-	int	y;
-
-	if (data->monster.on_screen && data->player.hidden_fr == 0)
-	{
-		x = data->monster.x;
-		y = data->monster.y;
-		while (x != data->player.x && y != data->player.y)
-		{
-			if (x > data->player.x)
-				x--;
-			else if (x < data->player.x)
-				x++;
-			if (y > data->player.y)
-				y--;
-			else if (y < data->player.y)
-				y++;
-			if (!is_type(data, x, y, GROUND))
-				return (0);
-		}
-		data->monster.last_seen_x = data->player.x;
-		data->monster.last_seen_y = data->player.y;
-		return (1);
-	}
-	return (0);
-}
-
-int	last_seen_x_y(t_data *data, int x, int y)
-{
-	return (data->monster.last_seen_x == x && data->monster.last_seen_y == y);
 }

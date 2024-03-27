@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:10:55 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/19 18:03:50 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/27 20:54:59 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,11 @@ void	hide(t_data *data)
 	{
 		data->player.hidden = 0;
 		data->player.hidden_fr = 0;
+		play_sound("sounds/door_exit.wav");
 	}
 	else
 	{
+		play_sound("sounds/door.wav");
 		stun_player(data, 40);
 		data->player.hidden = 1;
 		if (data->monster.exist

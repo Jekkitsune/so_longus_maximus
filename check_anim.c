@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 17:54:04 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/21 19:59:14 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/27 22:56:52 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ int	is_idle(t_data *data, char *anim)
 
 void	idle_anim(t_data *data)
 {
-	if (data->player.current_anim && is_idle(data, data->player.current_anim->name) == 0)
+	if (data->player.current_anim
+		&& is_idle(data, data->player.current_anim->name) == 0)
 	{
 		if (data->player.direction == 1)
 			change_anim(data, "default_r", 1);

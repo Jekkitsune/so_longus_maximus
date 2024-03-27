@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 16:56:17 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/25 01:06:22 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/27 22:54:14 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,18 @@ void	play_sound(char *sound)
 	pid = fork();
 	if (pid == 0)
 		execlp("paplay", "paplay", sound, NULL);
+}
+
+void	anim_sound_loop(t_data *data)
+{
+	if (data->player.current_anim->anim_sound)
+		data->player.current_anim->anim_sound(data->player.current_anim->index,
+			data->player.current_anim->clock);
+	if (!data->ui.hide)
+		data->ui.heart_anim.anim_sound(data->ui.heart_anim.index,
+			data->ui.heart_anim.clock);
+	if (data->monster.exist && data->monster.anim[0].anim_sound
+		&& get_monster_distance(data) < 7)
+		data->monster.anim[0].anim_sound(data->monster.anim[0].index,
+			data->monster.anim[0].clock);
 }

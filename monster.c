@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/28 17:48:30 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/20 20:31:44 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/27 19:54:48 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void	init_monster_anim(t_data *data)
 				"sprites/monster/monster_run_r_01.png",
 				&data->monster.size_x, &data->monster.size_y);
 	data->monster.sprite = data->monster.default_sprite;
+	data->monster.scream_timer = 0;
 }
 
 void	init_monster(t_data *data)

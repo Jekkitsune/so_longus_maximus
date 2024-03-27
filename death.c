@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 18:10:08 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/21 19:24:06 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/27 20:56:13 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	kill_player(t_data *data)
 		data->flags.bad_apple_launched = 0;
 	stun_player(data, -1);
 	data->player.dead = 1;
+	if (data->player.hidden)
+		play_sound("sounds/door_exit.wav");
 	data->player.hidden = 0;
 	data->ui.hide = 1;
 	if (data->flags.fnaf)
