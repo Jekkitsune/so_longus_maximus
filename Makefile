@@ -6,14 +6,17 @@
 #    By: fparis <fparis@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 15:23:49 by fparis            #+#    #+#              #
-#    Updated: 2024/03/27 22:55:30 by fparis           ###   ########.fr        #
+#    Updated: 2024/03/28 21:39:03 by fparis           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -g -Wall -Wextra -Werror
 NAME = so_long
-HEADER = headers
+HEADER = data/headers
+
+SRC_DIR = data
+OBJ_DIR = data/obj
 
 SRCS = main.c\
 		chunk.c\
@@ -72,26 +75,37 @@ SRCS = main.c\
 		buttons_functions_6.c\
 		menu_2.c
 
-LIBFT = libft/libft.a libft/ft_printf/libftprintf.a
-	
-OBJS = $(SRCS:.c=.o)
+LIBFT = data/libft/libft.a data/libft/ft_printf/libftprintf.a
+
+OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $^ -o $(NAME) $(LIBFT) MacroLibX/libmlx.so -lSDL2 -I $(HEADER) -lm
+	@$(CC) $(CFLAGS) $^ -o $(NAME) $(LIBFT) data/MacroLibX/libmlx.so -lSDL2 -I $(HEADER) -lm
+	 @echo "$(NAME) compilation successful !"
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ -I $(HEADER)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(@D)
+	@echo "Compiling $(notdir $<)..."
+	@$(CC) $(CFLAGS) -c $< -o $@ -I $(HEADER)
 
 $(LIBFT):
-	@make printf -s -C libft
+	@make printf -s -C data/libft
 
 clean:
-	rm -f $(OBJS) $(OBJS_BONUS)
-	@make fclean -s -C libft
+	@echo "Removing object..."
+	@rm -rf $(OBJ_DIR)
+	@echo "Removing libft..."
+	@make fclean -s -C data/libft
 
 fclean: clean
-	rm -f $(NAME)
+	@echo "Removing $(NAME)..."
+	@rm -f $(NAME)
 
 re: fclean all
+
+run: all
+	./so_long levels/level_0.ber levels/level_1.ber levels/level_2.ber levels/level_3.ber levels/monster_test.ber levels/race.ber levels/Editor_map.ber
+
+.PHONY: all clean fclean re run

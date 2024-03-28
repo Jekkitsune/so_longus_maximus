@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 15:56:53 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/27 19:44:43 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/28 18:30:41 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,11 @@ int	key_down_manager(int key, void *param)
 	}
 	if (key == 26 || key == 4 || key == 22 || key == 7)
 		register_player_movement(data, key, 1);
-	else if (key == 8 && data->player.can_interact)
+	if (key == 8 && data->player.can_interact)
 		interact(data);
 	else if (key == 5 && data->flags.touhou)
 		bad_apple_manager(data);
-	else if (key == 225)
+	if (key == 225)
 		data->player.is_running = 1;
 	if (data->flags.debug_mode)
 		debug_command(data, key);

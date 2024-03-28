@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 20:20:08 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/27 20:03:57 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/28 21:11:24 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,9 @@ void	get_to_player(t_data *data, int new_coord[2])
 		}
 		coords[0]++;
 	}
+}
+
+int	last_seen_x_y(t_data *data, int x, int y)
+{
+	return (data->monster.last_seen_x == x && data->monster.last_seen_y == y);
 }

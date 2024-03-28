@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 00:05:04 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/25 00:44:42 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/28 18:49:24 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	continue_effect_anim(t_data *data, t_effect *effect)
 	{
 		effect->clock = effect->anim->interval;
 		effect->anim_index++;
-		if (effect->anim_index >= effect->anim->size)
+		if (effect->anim_index >= effect->anim->size - 1)
 		{
 			destroy_explosion(data);
 			return ;

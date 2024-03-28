@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 19:30:46 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/27 22:58:59 by fparis           ###   ########.fr       */
+/*   Updated: 2024/03/28 17:03:58 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	breathing(int index, int clock)
 		play_sound("sounds/player/breathing.wav");
 }
 
-//	if (index == 10 && clock == 30)
-//		play_sound("sounds/heart_stop.wav");
 void	death_sound(int index, int clock)
 {
 	if (index < 11 && clock % 10 == 0)
