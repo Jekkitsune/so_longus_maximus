@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 22:07:26 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/27 22:48:19 by fparis           ###   ########.fr       */
+/*   Updated: 2024/04/01 14:14:51 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,11 @@ void	go_to_level_selection(t_data *data, int param)
 	play_sound("sounds/menu_press.wav");
 	data->current_menu = &data->menu_list[3];
 	data->current_menu->button_index = 0;
+}
+
+void	main_menu_loop(t_data *data)
+{
+	mlx_string_put(data->mlx, data->win, data->win_y / 20,
+		data->win_y / 20,
+		0xFFFFFFFF, "Sons: mbico <3");
 }

@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 22:23:29 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/27 22:41:22 by fparis           ###   ########.fr       */
+/*   Updated: 2024/04/01 14:08:30 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	create_main_menu(t_data *data)
 	data->menu_list[0].tab = malloc(data->menu_list[0].size * sizeof(t_button));
 	if (!data->menu_list[0].tab)
 		free_exit(data, "could not allocate main menu");
-	data->menu_list[0].menu_loop = empty_loop;
+	data->menu_list[0].menu_loop = main_menu_loop;
 	data->menu_list[0].margin = 200;
 	create_button(&data->menu_list[0].tab[0], "Select level", ">Select level",
 		go_to_level_selection);

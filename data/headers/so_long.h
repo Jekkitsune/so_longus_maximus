@@ -6,7 +6,7 @@
 /*   By: fparis <fparis@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 14:50:52 by fparis            #+#    #+#             */
-/*   Updated: 2024/03/27 22:57:55 by fparis           ###   ########.fr       */
+/*   Updated: 2024/04/01 14:08:11 by fparis           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -417,5 +417,6 @@ void		go_to_level_selection(t_data *data, int param);
 void		level_selection_loop(t_data *data);
 void		change_level_selected(t_data *data, int param);
 void		create_level_selection(t_data *data);
+void		main_menu_loop(t_data *data);
 
 #endif
